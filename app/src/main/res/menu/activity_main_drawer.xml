@@ -22,8 +22,8 @@
     <group android:checkableBehavior="single"
         android:id="@+id/secondaryOptions">
         <item
-            android:id="@+id/nav_test"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_dev_profile"
+            android:icon="@drawable/ic_round_apps"
+            android:title="Other Apps" />
     </group>
 </menu>

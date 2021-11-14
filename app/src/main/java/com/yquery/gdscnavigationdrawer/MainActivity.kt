@@ -1,8 +1,8 @@
 package com.yquery.gdscnavigationdrawer
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.Menu
-import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,7 +13,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.yquery.gdscnavigationdrawer.databinding.ActivityMainBinding
 
@@ -51,10 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener { menuItem ->
             // Handle menu item selected
-            when (menuItem.itemId){
-                R.id.nav_test -> {
-                    Toast.makeText(this, "Okaaay", Toast.LENGTH_SHORT).show()
-                }
+            when (menuItem.itemId) {
                 R.id.nav_gallery -> {
                     navController.navigate(R.id.nav_gallery)
                 }
@@ -63,6 +59,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_slideshow -> {
                     navController.navigate(R.id.nav_slideshow)
+                }
+                R.id.nav_dev_profile -> {
+                    val devLinkIntent = Intent(Intent.ACTION_VIEW)
+                    devLinkIntent.data =
+                        Uri.parse("https://play.google.com/store/apps/dev?id=6245006738668751785")
+                    startActivity(devLinkIntent)
                 }
             }
             drawerLayout.close()
