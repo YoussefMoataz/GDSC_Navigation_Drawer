@@ -2,6 +2,8 @@ package com.yquery.gdscnavigationdrawer
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -11,6 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import com.yquery.gdscnavigationdrawer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +36,9 @@ class MainActivity : AppCompatActivity() {
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+        val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -42,16 +48,32 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
+        navView.setNavigationItemSelectedListener { menuItem ->
+            // Handle menu item selected
+            when (menuItem.itemId){
+                R.id.nav_test -> {
+                    Toast.makeText(this, "Okaaay", Toast.LENGTH_SHORT).show()
+                }
+                R.id.nav_gallery -> {
+                    navController.navigate(R.id.nav_gallery)
+                }
+                R.id.nav_home -> {
+                    navController.navigate(R.id.nav_home)
+                }
+                R.id.nav_slideshow -> {
+                    navController.navigate(R.id.nav_slideshow)
+                }
+            }
+            drawerLayout.close()
+            true
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }
