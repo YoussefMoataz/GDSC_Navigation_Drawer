@@ -3,7 +3,6 @@ package com.yquery.gdscnavigationdrawer
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_test_one, R.id.nav_test_two
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -51,14 +50,14 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener { menuItem ->
             // Handle menu item selected
             when (menuItem.itemId) {
-                R.id.nav_gallery -> {
-                    navController.navigate(R.id.nav_gallery)
+                R.id.nav_test_one -> {
+                    navController.navigate(R.id.nav_test_one)
                 }
                 R.id.nav_home -> {
                     navController.navigate(R.id.nav_home)
                 }
-                R.id.nav_slideshow -> {
-                    navController.navigate(R.id.nav_slideshow)
+                R.id.nav_test_two -> {
+                    navController.navigate(R.id.nav_test_two)
                 }
                 R.id.nav_dev_profile -> {
                     val devLinkIntent = Intent(Intent.ACTION_VIEW)

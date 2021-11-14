@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.yquery.gdscnavigationdrawer.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_test_one"
+        android:name="com.yquery.gdscnavigationdrawer.ui.test_one.TestOne"
+        android:label="@string/menu_test_one"
+        tools:layout="@layout/fragment_test_one" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.yquery.gdscnavigationdrawer.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_test_two"
+        android:name="com.yquery.gdscnavigationdrawer.ui.test_two.TestTwo"
+        android:label="@string/menu_test_two"
+        tools:layout="@layout/fragment_test_two" />
 </navigation>

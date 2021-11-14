@@ -7,16 +7,16 @@
         android:id="@+id/primaryOptions">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_round_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_test_one"
+            android:icon="@drawable/ic_round_looks_one"
+            android:title="@string/menu_test_one" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_test_two"
+            android:icon="@drawable/ic_round_looks_two"
+            android:title="@string/menu_test_two" />
     </group>
 
     <group android:checkableBehavior="single"
