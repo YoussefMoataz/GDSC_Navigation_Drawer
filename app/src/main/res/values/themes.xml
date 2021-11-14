@@ -17,8 +17,9 @@
         <item name="colorSecondaryContainer">@color/item_nav_color</item>
     </style>
 
-    <style name="Splash">
+    <style name="Splash" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@color/second_color</item>
     </style>
 
     <style name="Theme.GDSCNavigationDrawer.NoActionBar">
