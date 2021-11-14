@@ -65,6 +65,21 @@ class MainActivity : AppCompatActivity() {
                         Uri.parse("https://play.google.com/store/apps/dev?id=6245006738668751785")
                     startActivity(devLinkIntent)
                 }
+                R.id.nav_share -> {
+                    val shareAppIntent = Intent()
+                    shareAppIntent.apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(
+                            Intent.EXTRA_TEXT,
+                            "Just Sharing !"
+                        )
+                        putExtra(Intent.EXTRA_TITLE, "Share App")
+                        type = "text/plain"
+                    }
+
+                    val shareIntentChooser = Intent.createChooser(shareAppIntent, null)
+                    startActivity(shareIntentChooser)
+                }
             }
             drawerLayout.close()
             true

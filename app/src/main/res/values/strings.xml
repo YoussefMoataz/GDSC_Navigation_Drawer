@@ -10,4 +10,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_test_one">Test 1</string>
     <string name="menu_test_two">Test 2</string>
+    <string name="other_apps">Other Apps</string>
+    <string name="share">Share</string>
 </resources>
