@@ -1,5 +1,6 @@
 package com.yquery.gdscnavigationdrawer
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.yquery.gdscnavigationdrawer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,8 +31,17 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            Snackbar.make(view, "About app ?", Snackbar.LENGTH_LONG)
+                .setAction("About") {
+                    MaterialAlertDialogBuilder(this)
+                        .setTitle("About App")
+                        .setMessage("I know that this functionality is not allowed in a real app , but this is not a real one.")
+                        .setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, which ->
+                            dialog.dismiss()
+                        })
+                        .setIcon(R.drawable.ic_round_info)
+                        .show()
+                }.show()
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
